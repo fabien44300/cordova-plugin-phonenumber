@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-phonenumber"
+        version="1.0.0">
+    <name>Cordova Plugin Phonenumber</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo>https://github.com/fabien44300/cordova-plugin-phonenumber.git</repo>
+    <issue>hhttps://github.com/fabien44300/cordova-plugin-phonenumber/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+        <js-module src="www/plugin.js" name="plugin">
+            <runs/>
+
+            <!-- This is the window variable name you want, like window.CordovaPhonenumber -->
+            <clobbers target="CordovaPhonenumber"/>
+        </js-module>
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CordovaPhonenumber">
+                <param name="android-package" value="fr.hairhash.CordovaPhonenumber"/>
+                <param name="onload" value="true"/>
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        </config-file>
+
+        <source-file src="src/android/fr/hairhash/CordovaPhonenumber.java" target-dir="src/fr/hairhash/"/>
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+    </platform>
+</plugin>
